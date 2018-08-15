@@ -1,0 +1,41 @@
+<ul id="dropdown-nav" class="dropdown-content" style="width: 220px;">
+  <li>
+    <%= link_to edit_user_registration_path, class: "black-text" do %>
+      <i class="material-icons">vpn_key</i>Mudar Senha
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, class: "black-text" do %>
+      <i class="material-icons">exit_to_app</i>Sair
+    <% end %>
+  </li>
+</ul>
+<ul id="slide-out" class="side-nav">
+  <li>
+    <div class="user-view grey darken-2">
+      <!-- <a><span class="white-text email"><.%= current_user.email %></span></a> -->
+    </div>
+  </li>
+  <%= render 'layouts/menu_entry' %>
+</ul>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper grey darken-2">
+      <ul id="nav-mobile" class="left">
+        <li>
+          <a data-activates="slide-out" class="button-collapse show-on-large">
+            <i class="material-icons">menu</i>
+          </a>
+        </li>
+      </ul>
+      <%= link_to 'PROBUS EXT', root_path,  class: "titulo-app"%>
+      <ul id="nav-mobile" class="right">
+        <li>
+          <a class="dropdown-button" data-activates="dropdown-nav">
+            <i class="large material-icons">more_vert</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

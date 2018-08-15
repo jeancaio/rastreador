@@ -1,0 +1,27 @@
+<ul id="dropdown-nav" class="dropdown-content" style="width: 220px;">
+  <li>
+    <%= link_to edit_user_registration_path, class: "black-text" do %>
+      <i class="material-icons">vpn_key</i>Mudar Senha
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, method: :delete, class: "black-text"  do %> 
+      <i class="material-icons">exit_to_app</i>Sair
+    <% end %>
+  </li>
+</ul>
+
+<nav>
+  <div class="nav-wrapper black">
+    <div class="container">
+      <%= link_to "Probus Ext Admin", root_path %>
+      <ul class="right">
+        <li>
+          <a class="dropdown-button" data-activates="dropdown-nav">
+            <i class="large material-icons">more_vert</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

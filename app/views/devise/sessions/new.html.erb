@@ -1,0 +1,24 @@
+<br>
+<div class="logo-name" >
+  PROBUS EXT
+</div>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= f.hidden_field :token, value: params[:token] %>
+  <div class='row'>
+    <%= f.input :email, wrapper_html: { class: 'm12 s12' } %>
+  </div>
+  <div class='row'>
+    <%= f.input :password, label: 'Senha', wrapper_html: { class: 'm12 s12' } %>
+    <div class='col s12'>
+      <label style='float: right;'>
+        <%= link_to t(".forgot_your_password"), new_password_path(resource_name), class: "grey-text text-darken-2" %><br />
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <%= button_tag(type: 'submit', class: "col s12 waves-effect waves-light btn cyan") do %>
+      <%= t(".sign_in") %>
+    <% end %>
+  </div>
+  <%= render_devise_view_links %>
+<% end %>
