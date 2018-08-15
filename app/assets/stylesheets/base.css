@@ -1,0 +1,116 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+h3 {
+  font-weight: bold !important;
+}
+
+h4 {
+  padding-top: 20px;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: initial;
+}
+
+.green-color {
+  background-color: #1ab394 !important;
+}
+
+.login {
+  width: 90%;
+  max-width: 500px;
+}
+
+.middle {
+  margin-top: calc(50vh - 300px)
+}
+
+.titulo-app {
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+}
+
+.logo-name {
+  color: #e6e6e6;
+  font-size: 70px;
+  font-weight: 500;
+}
+
+.botao-respostas {
+  float: right;
+  margin-left: 10px;
+}
+
+.radio-buttons {
+  display: inline-grid;
+  margin-top: 10px;
+  margin-left: 15px;
+  margin-bottom: 10px;
+}
+
+.btn-floating.btn-large {
+  width: 65px !important;
+  height: 65px !important;
+}
+
+.breadcrumb {
+  font-size: 15px !important;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.nav-filtros {
+  height: 50px;
+  line-height: 25px;
+  margin-top: 5px;
+}
+
+.row .col {
+  padding: 0px !important;
+}
+
+.pagination a li {
+  width: 30px;
+  font-size: 18px;
+  color: black;
+}
+
+.pagination a li.active {
+  color: #fff;
+  background-color: grey;
+}
+
+.input-field input[type=text] {
+  border-bottom: 0 !important;
+  box-shadow: 0 !important;
+  margin: 0px !important;
+}
+
+.container-respostas {
+  padding: 0px 10px 0px 10px
+}
+
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
+}
+
+#label-resposta {
+  font-size: 11px;
+  color: #757575;
+  margin-left: 10px;
+  margin-top: 20px;
+}

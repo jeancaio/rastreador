@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <title>Probus Ext</title>
+    <title>Track-J</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -15,7 +15,7 @@
     <main>
       <%= render 'layouts/topnavbar_admin' %>
 
-      <div class="container">     
+      <div class="container">
         <% if current_admin && !current_page?(admin_home_admin_index_path) %>
           <div class="row" style="margin-top: 10px;">
             <nav class="grey lighten-1">
@@ -29,7 +29,7 @@
         <% end %>
 
         <% if notice.present? %>
-          <div class="notice" data-msg="<%= notice %>"></div>  
+          <div class="notice" data-msg="<%= notice %>"></div>
         <% end %>
 
         <% if alert.present? %>

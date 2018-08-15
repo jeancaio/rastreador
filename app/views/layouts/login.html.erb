@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <title>Probus Ext</title>
+    <title>Track-J</title>
     <!-- Main css styles -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <!-- Main javascript files -->
@@ -19,9 +19,9 @@
         <div class="container">
           <div class="middle">
             <div class="row login">
-            
+
               <% if notice.present? %>
-                <div class="notice" data-msg="<%= notice %>"></div>  
+                <div class="notice" data-msg="<%= notice %>"></div>
               <% end %>
 
               <% if alert.present? %>
@@ -29,14 +29,10 @@
               <% end %>
 
               <%= yield %>
-              <small>
-                <%= link_to "Wonder", "http://www.wonder.com.br", target: "_blank" %> &copy; <%= Date.today.year %>
-              </small>
             </div>
-          </div> 
-        </div>     
+          </div>
+        </div>
       </center>
     </main>
   </body>
 </html>
-
