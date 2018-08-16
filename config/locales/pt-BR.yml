@@ -1,0 +1,26 @@
+pt-BR:
+  "yes":                           'Sim'
+  "no":                            'Não'
+  activerecord:
+    models:
+      cliente:
+        one:                       'Cliente'
+        other:                     'Clientes'
+    attributes:
+      wsi_pessoa:
+        id_cliente:                'ID Cliente'
+        acesso_tarefa:             'Acesso Tarefas'
+        acesso_sms:                'Acesso SMS'
+        dt_criacao:                'Data Criação'
+  views:
+    actions:
+      new:                         'Novo'
+      new-fem:                     'Nova'
+      edit:                        'Editar'
+      do_edit:                     'Edição'
+      save:                        'Salvar'
+  time:
+    formats:
+      data_hora:                   "%d/%b/%Y %H:%M"
+      data:                        "%d/%b/%Y"
+      filename:                    "%Y-%b-%d_%H-%M"

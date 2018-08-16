@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :home_admin
+    resources :clientes
   end
 
   resources :home do

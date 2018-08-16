@@ -1,0 +1,21 @@
+<%= simple_form_for([:admin, @cliente]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <div class="row">
+      <%= f.input :email, wrapper_html: { class: 'm12 s12' } %>
+      <%= f.input :nome, wrapper_html: { class: 'm12 s12' }  %>
+      <%= f.input :password, wrapper_html: { class: 'm12 s12' }  %>
+      <%= f.input :password_confirmation, wrapper_html: { class: 'm12 s12' }  %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% if @cliente.persisted? %>
+      <%= link_icon_to_back admin_cliente_path(@cliente) %>
+    <% else %>
+      <%= link_icon_to_back admin_clientes_path %>
+    <% end %>
+    <%= save_button %>
+  </div>
+<% end %>

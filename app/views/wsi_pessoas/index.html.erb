@@ -1,0 +1,42 @@
+<% breadcrumb :wsi_pessoas %>
+<div class="row">
+  <h3><%= plural_model_name_for(WsiPessoa) %></h3>
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th><%= WsiPessoa.human_attribute_name(:id_cliente) %></th>
+        <th><%= WsiPessoa.human_attribute_name(:acesso_tarefas) %></th>
+        <th><%= WsiPessoa.human_attribute_name(:acesso_sms) %></th>
+        <th><%= WsiPessoa.human_attribute_name(:dt_criacao) %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @wsi_pessoas.each do |wsi_pessoa| %>
+        <tr>
+          <td><%= link_to wsi_pessoa.id, admin_wsi_pessoa_path(wsi_pessoa) %></td>
+          <td><%= wsi_pessoa.id_cliente %></td>
+          <td><%= bs_yesno_label(wsi_pessoa.acesso_tarefas) %></td>
+          <td><%= bs_yesno_label(wsi_pessoa.acesso_sms) %></td>
+          <td><%= wsi_pessoa.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+          <td><%= link_icon_to_edit(edit_admin_wsi_pessoa_path(wsi_pessoa))%></td>
+          <td><%= link_icon_to_destroy(admin_wsi_pessoa_path(wsi_pessoa)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <%= link_icon_to_back admin_home_admin_index_path %>
+  <%= link_icon_to_new(new_admin_wsi_pessoa_path, action_new_fem(@wsi_pessoas)) %>
+</div>
+
+<div class="center-align">
+  <%= will_paginate @wsi_pessoas, renderer: MaterializePagination::Rails %>
+</div>

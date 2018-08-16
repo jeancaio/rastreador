@@ -1,0 +1,19 @@
+<% breadcrumb :cliente, @cliente %>
+<div class="row">
+  <h3><%= singular_model_name_for(Cliente) %></h3>
+</div>
+
+<div class="row">
+  <b><%= Cliente.human_attribute_name(:nome) %></b>
+  <%= @cliente.nome %>
+</div>
+
+<div class="row">
+  <b><%= Cliente.human_attribute_name(:email) %></b>
+  <%= @cliente.email %>
+</div>
+
+<div class="row">
+  <%= link_icon_to_back admin_clientes_path %>
+  <%= link_icon_to_edit(edit_admin_cliente_path(@cliente))%>
+</div>

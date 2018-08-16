@@ -1,0 +1,6 @@
+<% breadcrumb :cliente_new %>
+<div class="row">
+	<h3><%= action_new_fem(@cliente)  %> <%= singular_model_name_for(Cliente) %></h3>
+</div>
+
+<%= render 'form', cliente: @cliente %>
