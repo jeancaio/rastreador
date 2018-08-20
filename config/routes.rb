@@ -4,6 +4,15 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  namespace :api do
+    namespace :v1 do
+      resources :base
+      resources :posicoes do
+        post :post_posicoes, on: :collection
+      end
+    end
+  end
+
   namespace :admin do
     resources :home_admin
     resources :clientes
