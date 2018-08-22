@@ -25,8 +25,8 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'gretel'
-gem 'wonder_rails_helpers', github: 'wondersistemas/wonder_rails_helpers'
 gem 'will_paginate-materialize'
+gem 'wonder_rails_helpers', github: 'augustoam/wonder-rails-helper'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

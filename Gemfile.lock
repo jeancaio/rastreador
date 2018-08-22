@@ -1,6 +1,6 @@
 GIT
-  remote: https://github.com/wondersistemas/wonder_rails_helpers.git
-  revision: d75e67192c0d2af23b82f28f88d141bed77f8f59
+  remote: https://github.com/augustoam/wonder-rails-helper.git
+  revision: 25ddc00360d3647acb3438312751464364557525
   specs:
     wonder_rails_helpers (1.1.1)
 
