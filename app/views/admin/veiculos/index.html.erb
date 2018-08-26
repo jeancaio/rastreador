@@ -1,0 +1,42 @@
+<% breadcrumb :veiculos, params[:user_id] %>
+<div class="row">
+  <h3>Veículos</h3>
+</div>
+
+<div class="row">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th><%= Veiculo.human_attribute_name(:marca) %></th>
+        <th><%= Veiculo.human_attribute_name(:modelo) %></th>
+        <th><%= Veiculo.human_attribute_name(:cor) %></th>
+        <th><%= Veiculo.human_attribute_name(:placa) %></th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @veiculos.each do |veiculo| %>
+        <tr>
+          <td><%= link_to veiculo.id, admin_user_veiculos_path(params[:user_id], veiculo) %></td>
+          <td><%= veiculo.marca %></td>
+          <td><%= veiculo.modelo %></td>
+          <td><%= veiculo.cor %></td>
+          <td><%= veiculo.placa %></td>
+          <td><%= link_icon_to_edit(edit_admin_veiculo_path(veiculo))%></td>
+          <td><%= link_icon_to_destroy(admin_user_veiculos_path(veiculo)) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="row">
+  <%= link_icon_to_back admin_users_path %>
+  <%= link_icon_to_new(new_admin_user_veiculo_path(params[:user_id]), action_new(@veiculos)) %>
+</div>
+
+<div class="center-align">
+  <%= will_paginate @veiculos, renderer: MaterializePagination::Rails %>
+</div>

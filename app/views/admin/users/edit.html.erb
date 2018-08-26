@@ -1,0 +1,6 @@
+<% breadcrumb :user_edit, @cliente %>
+<div class="row">
+	<h3><%= action_edit(@cliente)  %> <%= singular_model_name_for(User) %></h3>
+</div>
+
+<%= render 'form', cliente: @cliente %>

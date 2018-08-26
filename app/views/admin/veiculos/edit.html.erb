@@ -1,0 +1,6 @@
+<% breadcrumb :veiculo_edit, @veiculo %>
+<div class="row">
+	<h3><%= action_edit(@veiculo)  %> <%= singular_model_name_for(Veiculo) %></h3>
+</div>
+
+<%= render 'form', veiculo: @veiculo %>

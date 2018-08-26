@@ -1,0 +1,29 @@
+<% breadcrumb :veiculo, @veiculo %>
+<div class="row">
+  <h3><%= singular_model_name_for(Veiculo) %></h3>
+</div>
+
+<div class="row">
+  <b><%= Veiculo.human_attribute_name(:marca) %></b>
+  <%= @veiculo.marca %>
+</div>
+
+<div class="row">
+  <b><%= Veiculo.human_attribute_name(:modelo) %></b>
+  <%= @veiculo.modelo %>
+</div>
+
+<div class="row">
+  <b><%= Veiculo.human_attribute_name(:cor) %></b>
+  <%= @veiculo.cor %>
+</div>
+
+<div class="row">
+  <b><%= Veiculo.human_attribute_name(:placa) %></b>
+  <%= @veiculo.placa %>
+</div>
+
+<div class="row">
+  <%= link_icon_to_back admin_users_path %>
+  <%= link_icon_to_edit(edit_admin_veiculo_path(@veiculo))%>
+</div>

@@ -1,3 +1,3 @@
 class Posicao < ApplicationRecord
-  # belongs_to :user
+  belongs_to :veiculo
 end

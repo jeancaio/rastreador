@@ -6,6 +6,9 @@ pt-BR:
       cliente:
         one:                       'Cliente'
         other:                     'Clientes'
+      veiculo:
+        one:  Veículo
+        other: Veículos
     attributes:
       wsi_pessoa:
         id_cliente:                'ID Cliente'

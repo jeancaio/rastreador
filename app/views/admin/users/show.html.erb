@@ -1,4 +1,4 @@
-<% breadcrumb :cliente, @cliente %>
+<% breadcrumb :user, @cliente %>
 <div class="row">
   <h3><%= singular_model_name_for(Cliente) %></h3>
 </div>
@@ -14,6 +14,6 @@
 </div>
 
 <div class="row">
-  <%= link_icon_to_back admin_clientes_path %>
-  <%= link_icon_to_edit(edit_admin_cliente_path(@cliente))%>
+  <%= link_icon_to_back admin_users_path %>
+  <%= link_icon_to_edit(edit_admin_user_path(@cliente))%>
 </div>

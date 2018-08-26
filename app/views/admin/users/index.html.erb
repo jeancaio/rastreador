@@ -1,4 +1,4 @@
-<% breadcrumb :clientes %>
+<% breadcrumb :users %>
 <div class="row">
   <h3>Clientes</h3>
 </div>
@@ -7,8 +7,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th><%= Cliente.human_attribute_name(:email) %></th>
-        <th><%= Cliente.human_attribute_name(:nome) %></th>
+        <th><%= User.human_attribute_name(:email) %></th>
+        <th><%= User.human_attribute_name(:nome) %></th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -16,12 +16,14 @@
     <tbody>
       <% @clientes.each do |cliente| %>
         <tr>
-          <td><%= link_to cliente.id, admin_cliente_path(cliente) %></td>
+          <td><%= link_to cliente.id, admin_user_path(cliente) %></td>
           <td><%= cliente.email %></td>
           <td><%= cliente.nome %></td>
           <td><%= cliente.created_at.strftime("%d/%m/%Y %H:%M") %></td>
-          <td><%= link_icon_to_edit(edit_admin_cliente_path(cliente))%></td>
-          <td><%= link_icon_to_destroy(admin_cliente_path(cliente)) %></td>
+          <td><%= link_icon_to_edit(edit_admin_user_path(cliente))%></td>
+          <td><%= link_icon_to_destroy(admin_user_path(cliente)) %></td>
+          <td><%= link_to 'Veículos', admin_user_veiculos_path(cliente), class: "waves-effect waves-light btn grey lighten-4 black-text"%></td> 
+
         </tr>
       <% end %>
     </tbody>
@@ -30,7 +32,7 @@
 
 <div class="row">
   <%= link_icon_to_back admin_home_admin_index_path %>
-  <%= link_icon_to_new(new_admin_cliente_path, action_new_fem(@clientes)) %>
+  <%= link_icon_to_new(new_admin_user_path, action_new_fem(@clientes)) %>
 </div>
 
 <div class="center-align">

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :home_admin
-    resources :clientes
+    resources :users do
+      resources :veiculos, shallow: true
+    end
   end
 
   resources :home do

@@ -12,9 +12,9 @@
 
   <div class="row">
     <% if @cliente.persisted? %>
-      <%= link_icon_to_back admin_cliente_path(@cliente) %>
+      <%= link_icon_to_back admin_user_path(@cliente) %>
     <% else %>
-      <%= link_icon_to_back admin_clientes_path %>
+      <%= link_icon_to_back admin_users_path %>
     <% end %>
     <%= save_button %>
   </div>

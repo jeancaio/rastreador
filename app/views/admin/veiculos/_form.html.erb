@@ -1,0 +1,21 @@
+<%= simple_form_for @veiculo, url: (@veiculo.persisted? ? [:admin, @veiculo] : [:admin, :user ,@veiculo]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="row">
+    <div class="row">
+      <%= f.input :marca, wrapper_html: { class: 'm3 s3' } %>
+      <%= f.input :modelo, wrapper_html: { class: 'm9 s9' }  %>
+      <%= f.input :cor, wrapper_html: { class: 'm3 s3' }  %>
+      <%= f.input :placa, wrapper_html: { class: 'm9 s9' }  %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% if @veiculo.persisted? %>
+      <%= link_icon_to_back admin_user_path(@veiculo) %>
+    <% else %>
+      <%= link_icon_to_back admin_users_path %>
+    <% end %>
+    <%= save_button %>
+  </div>
+<% end %>
