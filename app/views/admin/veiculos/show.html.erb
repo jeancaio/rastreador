@@ -24,6 +24,12 @@
 </div>
 
 <div class="row">
+  <input class="form-control" readonly="true" type="text" value="<%= @veiculo.token_integracao %>">
+      <%= link_to 'Gerar novo token', gerar_token_admin_veiculo_path(@veiculo), class: 'btn btn-success',
+        method: :post, data: { confirm: 'Confirma a geração do novo token?'} %>
+</div>
+
+<div class="row">
   <%= link_icon_to_back admin_users_path %>
   <%= link_icon_to_edit(edit_admin_veiculo_path(@veiculo))%>
 </div>

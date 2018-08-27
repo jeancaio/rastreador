@@ -1,6 +1,6 @@
 class Admin::VeiculosController < ApplicationController
   layout 'admin'
-  before_action :set_veiculo, only: [:show, :edit, :update, :destroy]
+  before_action :set_veiculo, only: [:show, :edit, :update, :destroy, :gerar_token]
   before_action :set_cliente, only: [:index, :new, :create]
 
   def index
@@ -38,6 +38,13 @@ class Admin::VeiculosController < ApplicationController
   def destroy
     @veiculo.destroy
     redirect_to admin_clientes_path, notice: 'Cliente excluído com sucesso.'
+  end
+
+  def gerar_token
+    @veiculo.gerar_token_integracao!
+    redirect_to admin_veiculo_path(@veiculo), notice: "Novo token gerado com sucesso"
+  rescue StandardError => error
+    redirect_to admin_veiculo_path(@veiculo), alert: "Erro ao gerar token: #{error.message}"
   end
 
   private

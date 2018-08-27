@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :home_admin
     resources :users do
-      resources :veiculos, shallow: true
+      resources :veiculos, shallow: true do
+        post :gerar_token, on: :member
+      end
     end
   end
 

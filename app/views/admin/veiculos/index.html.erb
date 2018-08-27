@@ -19,7 +19,7 @@
     <tbody>
       <% @veiculos.each do |veiculo| %>
         <tr>
-          <td><%= link_to veiculo.id, admin_user_veiculos_path(params[:user_id], veiculo) %></td>
+          <td><%= link_to veiculo.id, admin_veiculo_path(veiculo) %></td>
           <td><%= veiculo.marca %></td>
           <td><%= veiculo.modelo %></td>
           <td><%= veiculo.cor %></td>
