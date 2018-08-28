@@ -26,6 +26,10 @@ dd {
   margin-left: initial;
 }
 
+.container-track {
+    margin: 0% 10% 0% 10%
+}
+
 .green-color {
   background-color: #1ab394 !important;
 }
