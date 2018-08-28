@@ -35,4 +35,5 @@ class Users::RegistrationsController < Devise::RegistrationsController
       set_flash_message! :notice, :signed_up_invalid
       redirect_to new_usuario_registration_path
     end
+  end
 end
