@@ -6,7 +6,6 @@ class Api::V1::BaseController < ActionController::API
     puts "------BASIC AUTH-------"
     authenticate_with_http_basic do |token_veiculo, _password|
       puts "-------PROCURANDO VEÍCULO---------"
-      puts "-------AUTH #{token_veiculo}---------"
       @veiculo = Veiculo.find_by(token_integracao: token_veiculo)
     end
     raise 'Veiculo não encontrado' unless @veiculo
