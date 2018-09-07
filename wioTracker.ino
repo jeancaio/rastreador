@@ -28,6 +28,8 @@ int port = 80;
 int ret = 0;
 String coordinate;
 void postCoordinate();
+
+
 void setup() {
   pinMode(12, OUTPUT);
   digitalWrite(12, HIGH);
@@ -66,7 +68,6 @@ void setup() {
 void loop()
 {
   static uint32_t searchCnt = 0;
-  coordinate = "";
   /**
      Get GPS coordinate
   */
@@ -78,6 +79,7 @@ void loop()
     float latitude = gnss.latitude;
     float longitude = gnss.longitude;
 
+    coordinate = "";
     coordinate += F("-");
     coordinate += String(latitude, 6);
     coordinate += F(",-");
@@ -89,8 +91,9 @@ void loop()
   {
     SerialUSB.println("Error!");
   }
+
   postCoordiante(coordinate);
-  delay(2000);
+  delay(1000);
 }
 
 /**
@@ -99,24 +102,26 @@ void loop()
 void postCoordiante(String coordinate)
 {
   SerialUSB.println("------POST-----");
+  SerialUSB.println(coordinate);
   char body[180];
   if (gprs.connectTCP(URL, port))
   {
     bool ret;
     char postContent[200];
 
-    sprintf(body, "{\"coordenadas_geograficas\":\"John\",\"captured_at\": \"2018-01-01\"}");
+//    char coordenadas[50];
+//    coordenadas = strcat("", coordinate);
 
-    SerialUSB.print("BODY: ");
-    SerialUSB.println(body);
+    sprintf(body, "{\"coordenadas_geograficas\":\"%s\",\"captured_at\": \"2018-01-01\",\"token\": \""AUTH"\"}", coordinate.c_str());
+
     /**
         Load latlng data to postContent
     */
     MC20_clean_buffer(postContent, 100);
 //    rbase64.encode(Encoding.Default.GetBytes(AUTH + ":" + ""));
 
-    sprintf(postContent, "POST %s HTTP/1.1\r\nContent-Type: application/json\r\nHost: %s\r\nAuthorization: Basic %s\r\nContent-Length: %d\r\n\r\n%s", URL_EVENT, HOST, rbase64.encode(AUTH), strlen(body), body);
-
+//    sprintf(postContent, "POST %s HTTP/1.1\r\nContent-Type: application/json\r\nHost: %s\r\nAuthorization: Basic %s\r\nContent-Length: %d\r\n\r\n%s", URL_EVENT, HOST, rbase64.encode(AUTH ":"), strlen(body), body);
+    sprintf(postContent, "POST %s HTTP/1.1\r\nContent-Type: application/json\r\nHost: %s\r\nContent-Length: %d\r\n\r\n%s", URL_EVENT, HOST, strlen(body), body);
     SerialUSB.print(postContent);
     gprs.sendTCPData(postContent);   // Send HTTP request
     ret = MC20_wait_for_resp("CLOSED\r\n", CMD, 10, 2000, true);
