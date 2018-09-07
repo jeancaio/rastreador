@@ -16,4 +16,18 @@ class Api::V1::PosicoesController < Api::V1::BaseController
    render json: error
   end
 
+  def get_last_position
+    @cliente = verificar_cliente
+    @veiculo = @cliente.veiculos.find_by(token_integracao: params[:token_veiculo])
+
+    if @veiculo
+      render json: @veiculo.posicoes.last
+    else
+      raise "Veículo não encontrado"
+    end
+
+  rescue StandardError => error
+   render json: error
+  end
+
 end

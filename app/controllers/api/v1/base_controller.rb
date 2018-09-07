@@ -2,14 +2,12 @@ class Api::V1::BaseController < ActionController::API
   include ActionController::HttpAuthentication::Basic::ControllerMethods
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
-  def verificar_veiculo
-    puts "------BASIC AUTH-------"
-    authenticate_with_http_basic do |token_veiculo, _password|
-      puts "-------PROCURANDO VEÍCULO---------"
-      @veiculo = Veiculo.find_by(token_integracao: token_veiculo)
+  def verificar_cliente
+    authenticate_with_http_basic do |token_cliente, _password|
+      @cliente = User.find_by(token_integracao: token_cliente)
     end
-    raise 'Veiculo não encontrado' unless @veiculo
-    @veiculo
+    raise 'Cliente não encontrado' unless @cliente
+    @cliente
   end
 
 end

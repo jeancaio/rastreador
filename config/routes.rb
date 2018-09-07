@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :base
       resources :posicoes do
         post :post_posicoes, on: :collection
+        get :get_last_position, on: :collection
       end
     end
   end
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :home_admin
     resources :users do
+      post :gerar_token, on: :member
       resources :veiculos, shallow: true do
         post :gerar_token, on: :member
       end
