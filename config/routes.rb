@@ -24,6 +24,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope  module: 'api/v1/sessions' do
+    post :http_authenticate
+  end
+
   resources :home do
     get :home, on: :collection
   end
