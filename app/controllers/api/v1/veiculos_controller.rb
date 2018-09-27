@@ -2,7 +2,7 @@ class Api::V1::VeiculosController < Api::V1::BaseController
 
 
   def get_veiculos
-    @cliente = User.find_by(token_integracao: params[:token_cliente])
+    @cliente = verificar_cliente
     raise "Cliente não encontrado" unless @cliente
 
     @veiculos = @cliente.veiculos
