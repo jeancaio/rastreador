@@ -3,8 +3,12 @@ class Api::V1::PosicoesController < Api::V1::BaseController
   def post_posicoes
     # @veiculo = verificar_veiculo
     @veiculo = Veiculo.find_by(token_integracao: params[:token])
+    raise "Veículo não encontrado" unless @veiculo
     puts '---------VEÍCULO ENCONTRADO-------'
-    @posicao = Posicao.new(coordenadas_geograficas: params[:coordenadas_geograficas], captured_at: params[:captured_at].to_datetime, veiculo: @veiculo)
+
+    @posicao = Posicao.new(coordenadas_geograficas: params[:coordenadas_geograficas], veiculo: @veiculo)
+
+    raise "Posição invalida" if params[:coordenadas_geograficas] == "-0.000000,-0.000000"
 
     if @posicao.save!
       return render json: @posicao, status: 200
