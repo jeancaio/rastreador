@@ -7,7 +7,7 @@ class Api::V1::PosicoesController < Api::V1::BaseController
     puts '---------VEÍCULO ENCONTRADO-------'
     raise "Posição invalida" if params[:coordenadas_geograficas] == "-0.000000,-0.000000"
 
-    @posicao = Posicao.new(coordenadas_geograficas: params[:coordenadas_geograficas], veiculo: @veiculo)
+    @posicao = Posicao.new(coordenadas_geograficas: params[:coordenadas_geograficas], captured_at: DateTime.now - 3.hours, veiculo: @veiculo)
 
 
     if @posicao.save!
