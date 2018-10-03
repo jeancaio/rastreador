@@ -33,4 +33,30 @@ class Api::V1::PosicoesController < Api::V1::BaseController
    render json: error
   end
 
+  def to_speed
+    @veiculo = Veiculo.find_by(token_integracao: params[:token])
+    raise "Veículo não encontrado" unless @veiculo
+
+    inicio = @veiculo.posicoes.last(2).first
+    final = @veiculo.posicoes.last
+
+    ponto1 = inicio.coordenadas_geograficas
+    ponto2 = final.coordenadas_geograficas
+
+    tempo1 = inicio.captured_at
+    tempo2 = final.captured_at
+
+    tempo = tempo2 - tempo1
+
+    resposta = {
+      inicio: ponto1,
+      final: ponto2,
+      tempo: tempo
+    }
+    render json: resposta
+
+  rescue StandardError => error
+   render json: error
+  end
+
 end

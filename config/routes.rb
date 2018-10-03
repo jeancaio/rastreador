@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :posicoes do
         post :post_posicoes, on: :collection
         get :get_last_position, on: :collection
+        get :to_speed, on: :collection
       end
       resources :veiculos do
         get :get_veiculos, on: :collection
