@@ -34,7 +34,7 @@ class Api::V1::PosicoesController < Api::V1::BaseController
   end
 
   def to_speed
-    @veiculo = Veiculo.find_by(token_integracao: params[:token])
+    @veiculo = Veiculo.find_by(token_integracao: params[:token_veiculo])
     raise "Veículo não encontrado" unless @veiculo
 
     inicio = @veiculo.posicoes.last(2).first
