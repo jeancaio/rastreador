@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gesso do
+    get :gesso, on: :collection
+  end
+
   scope  module: 'api/v1/sessions' do
     post :http_authenticate
   end
